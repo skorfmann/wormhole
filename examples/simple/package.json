@@ -1,0 +1,20 @@
+{
+  "name": "examples-simple",
+  "version": "0.0.0",
+  "license": "MPL-2.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "runner": "<rootDir>/../packages/jest-lambda",
+    "testMatch": [
+      "**/?(*_)test.js"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}

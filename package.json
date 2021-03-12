@@ -1,0 +1,18 @@
+{
+  "name": "jest-lambda",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Remote jest runner for AWS Lambda",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["jest", "aws", "lambda", "runner"],
+  "author": "Sebastian Korfmann",
+  "license": "MPL-2.0",
+  "workspaces": {
+    "packages": [
+      "examples/*",
+      "packages/*"
+    ]
+  }
+}
