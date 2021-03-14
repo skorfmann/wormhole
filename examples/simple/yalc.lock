@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "packages": {
+    "jest-lambda-runner": {
+      "signature": "478cf24bd660a5c93994af4125c2e24f",
+      "file": true,
+      "replaced": "0.0.0"
+    }
+  }
+}

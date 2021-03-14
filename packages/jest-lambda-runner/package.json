@@ -1,0 +1,30 @@
+{
+  "name": "jest-lambda-runner",
+  "version": "0.0.0",
+  "description": "Remote jest runner for AWS Lambda",
+  "directories": {
+    "lib": "lib"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "jest",
+    "aws",
+    "lambda",
+    "runner"
+  ],
+  "author": "Sebastian Korfmann",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-lambda": "^3.8.1",
+    "@jest/reporters": "^26.6.2",
+    "create-jest-runner": "^0.7.0",
+    "jest-worker": "^26.6.2",
+    "throat": "^6.0.1"
+  }
+}

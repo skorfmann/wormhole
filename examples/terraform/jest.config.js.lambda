@@ -1,0 +1,15 @@
+
+module.exports = {
+  testEnvironment: 'node',
+  roots: [
+    "<rootDir>"
+  ],
+  testMatch: ['**/*test.js'],
+  reporters: [
+    "default",
+    "jest-lambda-runner/lib/reporter.js"
+  ],
+  moduleFileExtensions: [
+    "js"
+  ],
+}

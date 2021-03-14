@@ -1,0 +1,35 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "main": "main.js",
+  "types": "main.ts",
+  "license": "MPL-2.0",
+  "private": true,
+  "scripts": {
+    "get": "cdktf get",
+    "build": "cdktf get && tsc",
+    "synth": "cdktf synth",
+    "compile": "tsc --pretty",
+    "watch": "tsc -w",
+    "test": "echo ok",
+    "upgrade": "npm i cdktf@latest cdktf-cli@latest",
+    "upgrade:next": "npm i cdktf@next cdktf-cli@next"
+  },
+  "engines": {
+    "node": ">=10.12"
+  },
+  "dependencies": {
+    "@cdktf/provider-aws": "^1.0.25",
+    "@cdktf/provider-null": "^0.1.28",
+    "cdktf": "0.1.0-pre.163",
+    "constructs": "^3.3.65",
+    "docker-registry-client": "^3.3.0",
+    "hashdirectory": "^0.1.0",
+    "iam-floyd": "^0.144.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.34",
+    "cdktf-cli": "0.1.0-pre.163",
+    "typescript": "^4.2.3"
+  }
+}

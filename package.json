@@ -4,9 +4,14 @@
   "private": true,
   "description": "Remote jest runner for AWS Lambda",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "lerna run build"
   },
-  "keywords": ["jest", "aws", "lambda", "runner"],
+  "keywords": [
+    "jest",
+    "aws",
+    "lambda",
+    "runner"
+  ],
   "author": "Sebastian Korfmann",
   "license": "MPL-2.0",
   "workspaces": {
@@ -14,5 +19,8 @@
       "examples/*",
       "packages/*"
     ]
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
   }
 }

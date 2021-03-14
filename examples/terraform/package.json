@@ -1,0 +1,28 @@
+{
+  "name": "examples-terraform",
+  "version": "0.0.0",
+  "license": "MPL-2.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "runner": "jest-lambda-runner",
+    "reporters": [
+      "default",
+      "jest-lambda-runner/lib/reporter.js"
+    ],
+    "testMatch": [
+      "**/?(*.)test.js"
+    ]
+  },
+  "dependencies": {
+    "jest-lambda-runner": "file:.yalc/jest-lambda-runner",
+    "util": "^0.12.3"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
