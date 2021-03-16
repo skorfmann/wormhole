@@ -9,6 +9,12 @@ Stop worrying about manually crafting a parallel CI pipeline and start folding e
 - [Terraform CDK](https://cdk.tf)
 - [AWS Lambda Docker Runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)
 - [Jest as a Platform](https://www.youtube.com/watch?v=NtjyeojAOBs&ab_channel=ReactiveConf)
+
+## How does it work
+
+Jest uses [workers](https://github.com/facebook/jest/tree/master/packages/jest-worker) to run parallel tests. It's essentially possible to run each test file on its own worker. That's exactly what we're doing here. However, rather than running the test locally, the worker calls out to Lambda function and reports the result back to the Jest process.
+
+![workflow](./workflow.png)
 ## Status
 
 This is a proof of concept at this point. The goal is to drastically reduce the run time of integration test pipelines without sacrificing developer experience.
