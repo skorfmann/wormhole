@@ -1,20 +1,24 @@
 import { Construct } from 'constructs';
-import { App, TerraformStack, TerraformOutput } from 'cdktf';
+import { TerraformStack, TerraformOutput } from 'cdktf';
 import * as aws from '@cdktf/provider-aws';
 import { Policy } from './lib/policy';
 import * as iam from 'iam-floyd';
 import { DockerAsset } from './lib/docker-asset'
-import * as path from 'path';
 
-class LambdaStack extends TerraformStack {
-  constructor(scope: Construct, name: string) {
+interface Config {
+  path: string;
+}
+export class LambdaStack extends TerraformStack {
+  constructor(scope: Construct, name: string, config: Config) {
     super(scope, name);
+
+    const { path } = config;
 
     new aws.AwsProvider(this, 'default', {
       region: 'eu-central-1'
     })
 
-    const fnName = `terraform-wormhole`;
+    const fnName = `terraform-wormhole-${name}`;
 
     const role = new aws.IamRole(this, 'role', {
       name: `${fnName}-role`,
@@ -44,8 +48,8 @@ class LambdaStack extends TerraformStack {
     })
 
     const asset = new DockerAsset(this, 'asset', {
-      name: 'lambda-jest',
-      path: path.join(__dirname, '..', '..', 'examples', 'terraform')
+      name: `terraform-wormhole-${name}`,
+      path
     })
 
     const fn = new aws.LambdaFunction(this, 'fn', {
@@ -73,7 +77,3 @@ class LambdaStack extends TerraformStack {
     })
   }
 }
-
-const app = new App();
-new LambdaStack(app, 'lambda');
-app.synth();

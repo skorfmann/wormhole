@@ -2,9 +2,13 @@
   "version": "v1",
   "packages": {
     "jest-lambda-runner": {
-      "signature": "478cf24bd660a5c93994af4125c2e24f",
+      "signature": "301d3ce18688ee35be6fd3b121cf6a37",
       "file": true,
       "replaced": "0.0.0"
+    },
+    "aws-lambda-worker": {
+      "signature": "ce886d611bd15dcc16c24c98c2195764",
+      "file": true
     }
   }
 }

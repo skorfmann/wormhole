@@ -64,7 +64,8 @@ class TestDriver {
   setupTypescriptProject = () => {
     this.switchToTempDir()
     this.init('typescript')
-    this.copyFiles('main.ts', 'cdktf.json')
+    this.copyFiles('main.ts')
+    this.copyFile('cdktf.template.json', 'cdktf.json')
     this.get()
   }
 

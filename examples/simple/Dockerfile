@@ -1,10 +1,12 @@
 FROM public.ecr.aws/lambda/nodejs:12
 # Alternatively, you can pull the base image from Docker Hub: amazon/aws-lambda-nodejs:12
 
-COPY . /var/task/
-
 # Install NPM dependencies for function
+COPY package.json /var/task/package.json
+COPY package-lock.json /var/task/package-lock.json
 RUN npm install
+
+COPY . /var/task/
 
 RUN mv jest.config.js.lambda jest.config.js
 

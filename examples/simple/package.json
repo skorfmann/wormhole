@@ -15,6 +15,7 @@
     ]
   },
   "dependencies": {
+    "aws-lambda-worker": "file:.yalc/aws-lambda-worker",
     "jest-lambda-runner": "file:.yalc/jest-lambda-runner",
     "util": "^0.12.3"
   },

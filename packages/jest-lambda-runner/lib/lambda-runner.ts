@@ -14,7 +14,7 @@ const lambdaRunner = async (options: any) => {
   try {
     const client = new LambdaClient({ region: "eu-central-1" });
     const params = {
-      FunctionName: "terraform-wormhole",
+      FunctionName: process.env.WORMHOLE_LAMBDA_RUNNER,
       InvocationType: "RequestResponse",
       LogType: 'Tail',
       Payload: Buffer.from(JSON.stringify(payload)),
@@ -25,7 +25,7 @@ const lambdaRunner = async (options: any) => {
     const response = await client.send(command)
 
     const result = JSON.parse(JSON.parse(new TextDecoder().decode(response.Payload)).result)
-    const testResults = result.testResults[0].testResults[0]
+    const testResult = result.testResults[0]
 
     if (result.success) {
       return pass({
@@ -34,11 +34,10 @@ const lambdaRunner = async (options: any) => {
         test: { path: testPath, title: 'LambdaRunner' },
       });
     } else {
-      const message = testResults.failureMessages[0]
       return fail({
         start,
         end: Date.now(),
-        test: { path: testPath, title: 'LambdaRunner', errorMessage: message },
+        test: { path: testPath, title: 'LambdaRunner', errorMessage: testResult.failureMessage },
       });
     }
   } catch(error) {
